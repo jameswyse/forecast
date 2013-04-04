@@ -1,6 +1,8 @@
 Forecast - Weather information for Node.js
 =================================================
 
+***Warning:*** Yahoo! have deleted the API I was using, updates and more providers coming soon!
+
 Work in progress..
 
 The aim of this module is to provide a common API for multiple weather providers and to return the results as a normalized Object.
