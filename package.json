@@ -1,10 +1,9 @@
 {
   "name": "forecast",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Weather API for Node.js",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/lemoncreative/forecast.git"
@@ -12,15 +11,14 @@
   "keywords": [
     "weather",
     "node",
-    "forecast"
+    "forecast",
+    "forecast.io"
   ],
   "author": "James Wyse",
   "license": "MIT",
-  "gitHead": "56afeb2ef9638057a57dd06a958b4c1a89a32a77",
   "dependencies": {
-    "underscore": "1.4.4",
-    "request": "2.16.6",
-    "xml2js": "0.2.6",
-    "moment": "2.0.0"
+    "underscore": "~1.4.4",
+    "moment": "~2.0.0",
+    "request-json": "~0.3.3"
   }
 }
