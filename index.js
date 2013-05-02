@@ -20,7 +20,7 @@ var Forecast = module.exports = function(options) {
   this.cache = {};
 
   _.defaults(this.options, {
-      service: 'yahoo'
+      service: 'forecast.io'
     , units: 'celcius'
     , cache: true
     , ttl: { minutes: 30 }
@@ -47,11 +47,13 @@ Forecast.prototype.expired = function(key) {
  */
 Forecast.prototype.get = function(location, callback) {
   var self = this
-    , key = crypto.createHash('md5').update(this.options+location).digest('hex');
+    , key = crypto.createHash('md5').update(this.options + location).digest('hex');
 
-  if(this.options.cache && this.cache[key] && !this.expired(key)) return callback(null, this.cache[key]);
+  if(this.options.cache && this.cache[key] && !this.expired(key)) {
+    return callback(null, this.cache[key]);
+  }
 
-  var Service = this.providers[this.options.service.toLowerCase()] || this.providers.yahoo
+  var Service = this.providers[this.options.service.toLowerCase()] || this.providers['forecast.io']
     , service = new Service(this.options);
 
   service.get(location, function(err, result) {
