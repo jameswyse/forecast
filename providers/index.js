@@ -1,3 +1,3 @@
 module.exports = {
-  'yahoo': require('./yahoo')
+    'forecast.io': require('./forecast.io')
 };
