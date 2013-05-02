@@ -32,7 +32,7 @@ forecast.get([-33.8683, 151.2086], function(err, weather) {
 ```
 
 ##Example Output
-```json
+```javascript
 { latitude: -33.8683,
   longitude: 151.2086,
   timezone: 'Australia/Sydney',
