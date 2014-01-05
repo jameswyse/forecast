@@ -2,8 +2,8 @@
 // Forecast example
 //
 
-// Require the module
-var Forecast = require('./index.js');
+// Require the forecast module
+var Forecast = require('../');
 
 // Initialize with custom settings
 var forecast = new Forecast({
