@@ -6,7 +6,7 @@ var ForecastIO = module.exports = function(options) {
 };
 
 ForecastIO.prototype.query = function(lat, lon, callback) {
-  if(!this.options.key) return callback('No API key specified');
+  if(!this.options.key) return callback('No API key specified - Get one from developer.forecast.io');
 
   var units = this.options.units.charAt(0).toLowerCase() === 'c' ? '?units=si' : '';
   this.client.get(lat + ',' + lon + units, callback);

@@ -26,6 +26,8 @@ var Forecast = module.exports = function(options) {
     , ttl: { minutes: 30 }
   });
 
+  if(this.options.key === 'your-api-key') this.options.key = null;
+
   this.options.ttl = moment.duration(this.options.ttl);
 };
 
