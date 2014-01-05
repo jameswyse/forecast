@@ -2,14 +2,14 @@ var Client = require('request-json').JsonClient;
 
 var ForecastIO = module.exports = function(options) {
   this.options = options || {};
-  this.client = new Client('https://api.forecast.io/forecast/' + this.options.key);
+  this.client = new Client('https://api.forecast.io/forecast/' + this.options.key + '/');
 };
 
 ForecastIO.prototype.query = function(lat, lon, callback) {
   if(!this.options.key) return callback('No API key specified');
 
   var units = this.options.units.charAt(0).toLowerCase() === 'c' ? '?units=si' : '';
-  this.client.get('/' + lat + ',' + lon + units, callback);
+  this.client.get(lat + ',' + lon + units, callback);
 };
 
 ForecastIO.prototype.get = function(location, callback) {
