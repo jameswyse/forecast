@@ -1,16 +1,15 @@
 {
-    "browser": true,
-    "jquery": true,
+    "browser": false,
+    "jquery": false,
     "node": true,
     "eqeqeq": true,
     "bitwise": true,
     "laxcomma": true,
-    "latedef": true,
+    "latedef": false,
     "newcap": true,
     "quotmark": "single",
-    "unused": true,
+    "multistr": true,
+    "unused": "vars",
     "strict": false,
-    "trailing": true,
-    "es5": true,
-    "esnext": true
+    "trailing": true
 }
