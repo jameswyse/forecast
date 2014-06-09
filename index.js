@@ -48,24 +48,48 @@ Forecast.prototype.expired = function(key) {
  * @param  {Function} callback Callback, signature: callback(err, result)
  */
 Forecast.prototype.get = function(location, callback) {
-  var self = this
-    , key = crypto.createHash('md5').update(this.options + location).digest('hex');
+    var self = this
+        , key = crypto.createHash('md5').update(this.options + location).digest('hex');
 
-  if(this.options.cache && this.cache[key] && !this.expired(key)) {
-    return callback(null, this.cache[key]);
-  }
-
-  var Service = this.providers[this.options.service.toLowerCase()] || this.providers['forecast.io']
-    , service = new Service(this.options);
-
-  service.get(location, function(err, result) {
-    if(err) return callback(err);
-
-    if(self.options.cache) {
-      self.cache[key] = result;
-      self.cache[key].expires = new Date().getTime() + self.options.ttl.asMilliseconds();
+    if(this.options.cache && this.cache[key] && !this.expired(key)) {
+        return callback(null, this.cache[key]);
     }
 
-    return callback(null, result);
-  });
+    var Service = this.providers[this.options.service.toLowerCase()] || this.providers['forecast.io']
+        , service = new Service(this.options);
+
+    service.get(location, function(err, result) {
+        if(err) return callback(err);
+
+        if(self.options.cache) {
+            self.cache[key] = result;
+            self.cache[key].expires = new Date().getTime() + self.options.ttl.asMilliseconds();
+        }
+
+        return callback(null, result);
+    });
+};
+
+/**
+ * Get the current weather conditions without reading the cache but overriding it
+ * @param  {Array}   location  Accepts a latitude and longitude pair as an `Array`
+ * @param  {Function} callback Callback, signature: callback(err, result)
+ */
+Forecast.prototype.getNoCache = function(location, callback) {
+    var self = this
+        , key = crypto.createHash('md5').update(this.options + location).digest('hex');
+
+    var Service = this.providers[this.options.service.toLowerCase()] || this.providers['forecast.io']
+        , service = new Service(this.options);
+
+    service.get(location, function (err, result) {
+        if (err) return callback(err);
+
+        if (self.options.cache) {
+            self.cache[key] = result;
+            self.cache[key].expires = new Date().getTime() + self.options.ttl.asMilliseconds();
+        }
+
+        return callback(null, result);
+    });
 };
