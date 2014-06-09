@@ -69,3 +69,27 @@ Forecast.prototype.get = function(location, callback) {
     return callback(null, result);
   });
 };
+
+/**
+ * Get the current weather conditions without reading the cache. Overrides the cache.
+ * @param  {Array}   location  Accepts a latitude and longitude pair as an `Array`
+ * @param  {Function} callback Callback, signature: callback(err, result)
+ */
+Forecast.prototype.getNoCache = function(location, callback) {
+    var self = this
+        , key = crypto.createHash('md5').update(this.options + location).digest('hex');
+
+    var Service = this.providers[this.options.service.toLowerCase()] || this.providers['forecast.io']
+        , service = new Service(this.options);
+
+    service.get(location, function(err, result) {
+        if(err) return callback(err);
+
+        if(self.options.cache) {
+            self.cache[key] = result;
+            self.cache[key].expires = new Date().getTime() + self.options.ttl.asMilliseconds();
+        }
+
+        return callback(null, result);
+    });
+};
