@@ -24,9 +24,9 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "underscore": "~1.5.2",
-    "moment": "~2.5.0",
-    "request-json": "~0.4.6"
+    "lodash-node": "2.4.x",
+    "moment": "2.7.x",
+    "request-json": "0.4.x"
   },
   "license": "MIT",
   "engines": {
