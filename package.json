@@ -7,13 +7,13 @@
     "email": "james@jameswyse.net",
     "url": "http://lemoncreative.net/"
   },
-  "homepage": "https://github.com/lemoncreative/forecast",
+  "homepage": "https://github.com/jameswyse/forecast",
   "repository": {
     "type": "git",
-    "url": "git://github.com/lemoncreative/forecast.git"
+    "url": "git://github.com/jameswyse/forecast.git"
   },
   "bugs": {
-    "url": "https://github.com/lemoncreative/forecast/issues",
+    "url": "https://github.com/jameswyse/forecast/issues",
     "email": "james@jameswyse.net"
   },
   "keywords": [
