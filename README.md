@@ -32,8 +32,14 @@ var forecast = new Forecast({
 
 // Retrieve weather information from coordinates (Sydney, Australia)
 forecast.get([-33.8683, 151.2086], function(err, weather) {
-  if(err) console.dir(err);
-  else console.dir(weather);
+  if(err) return console.dir(err);
+  console.dir(weather);
+});
+
+// Retrieve weather information, ignoring the cache
+forecast.get([-33.8683, 151.2086], true, function(err, weather) {
+  if(err) return console.dir(err);
+  console.dir(weather);
 });
 ```
 
@@ -135,6 +141,7 @@ forecast.get([-33.8683, 151.2086], function(err, weather) {
 
 * [James Wyse](https://github.com/jameswyse)
 * [Balázs Suhajda](https://github.com/suhajdab)
+* [hueneburg](https://github.com/hueneburg)
 
 ##LICENCE (MIT)
 
