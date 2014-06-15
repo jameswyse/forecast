@@ -24,9 +24,9 @@ var forecast = new Forecast({
   key: 'your-api-key',
   units: 'celcius', // Only the first letter is parsed
   cache: true,      // Cache API requests?
-  ttl: {           // How long to cache requests. Uses syntax from moment.js: http://momentjs.com/docs/#/durations/creating/
-      minutes: 27,
-      seconds: 45
+  ttl: {            // How long to cache requests. Uses syntax from moment.js: http://momentjs.com/docs/#/durations/creating/
+    minutes: 27,
+    seconds: 45
     }
 });
 
@@ -42,6 +42,7 @@ forecast.get([-33.8683, 151.2086], true, function(err, weather) {
   console.dir(weather);
 });
 ```
+
 
 ##Example Output
 ```javascript
@@ -124,7 +125,7 @@ forecast.get([-33.8683, 151.2086], true, function(err, weather) {
   },
   flags: {
     sources: [ 'isd', 'fnmoc', 'naefs', 'cmc', 'gfs' ],
-    'isd-stations': [ 
+    'isd-stations': [
       '947670-99999',
       '947675-99999',
       '947680-99999',
