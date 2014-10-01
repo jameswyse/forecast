@@ -8,7 +8,7 @@ var ForecastIO = module.exports = function(options) {
 ForecastIO.prototype.query = function(apiParams, callback) {
   if(!this.options.key) return callback('No API key specified - Get one from https://developer.forecast.io');
 
-      var units = this.options.units.charAt(0).toLowerCase() === 'c' ? '?units=si' : '';
+  var units = this.options.units.charAt(0).toLowerCase() === 'c' ? '?units=si' : '';
   this.client.get(apiParams.join(',') + units, callback);
 };
 
