@@ -53,14 +53,14 @@ Forecast.prototype.expired = function(key) {
 
 /**
  * Get the current weather conditions
- * @param  {Array}    location     Accepts a latitude and longitude pair as an `Array`
+ * @param  {Array}    apiParams    Accepts a latitude and longitude pair and optionally a unix timestamp as an `Array`
  * @param  {Boolean}  ignoreCache  If true then the cache will be ignored
  * @param  {Function} callback     Callback, signature: callback(err, result)
  */
-Forecast.prototype.get = function(location, ignoreCache, callback) {
+Forecast.prototype.get = function(apiParams, ignoreCache, callback) {
   var self = this;
   var key  = crypto.createHash('md5')
-    .update(this.options + location)
+    .update(this.options + apiParams)
     .digest('hex');
 
   if(typeof ignoreCache === 'function') {
@@ -78,7 +78,7 @@ Forecast.prototype.get = function(location, ignoreCache, callback) {
   var Service = this.providers[this.options.service.toLowerCase()];
   var service = new Service(this.options);
 
-  service.get(location, function(err, result) {
+  service.get(apiParams, function(err, result) {
     if(err) return callback(err);
 
     if(self.options.cache) {
