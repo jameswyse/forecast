@@ -143,6 +143,7 @@ forecast.get([-33.8683, 151.2086], true, function(err, weather) {
 * [James Wyse](https://github.com/jameswyse)
 * [Balázs Suhajda](https://github.com/suhajdab)
 * [hueneburg](https://github.com/hueneburg)
+* [ofbriggs](https://github.com/ofbriggs)
 
 ##LICENCE (MIT)
 
