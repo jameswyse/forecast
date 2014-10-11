@@ -1,23 +1,16 @@
-# Dotfiles
 .DS_Store
-.gitignore
-.gitattributes
-.npmignore
-.jshintrc
-.editorconfig
 
-# Logs & Temp Files
 *.log
-*.dat
 *.out
 *.pid
-
-# Development Files
 *.sublime-*
-Makefile
 
-# Documentation & Extras
-README.md
-docs/
-examples/
-assets/
+.git
+node_modules
+lib-cov
+tmp
+temp
+log
+logs
+_note*
+_idea*

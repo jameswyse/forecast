@@ -1,0 +1,69 @@
+*              text=auto
+
+.gitattributes text
+.gitignore     text
+.jshintrc      text
+.editorconfig  text
+.npmignore     text
+Makefile       text
+*.txt          text
+*.rtf          text      diff=astextplain
+*.js           text
+*.json         text
+*.xml          text
+*.yml          text
+*.map          text
+*.css          text
+*.less         text
+*.styl         text
+*.sass         text
+*.scss         text
+*.html         text      diff=html
+*.md           text
+*.markdown     text
+*.handlebars   text      diff=html
+*.jade         text
+*.mustache     text
+*.htc          text
+*.sh           text
+*.gemspec      text
+*.rb           text      diff=ruby
+*.cs           text      diff=csharp
+*.php          text      diff=php
+*.pl           text      diff=perl
+*.py           text      diff=python
+*.java         text      diff=java
+*.tex          text      diff=tex
+*.xaml         text
+*.csproj       text
+*.sln          text
+*.tt           text
+*.ps1          text
+*.cmd          text
+*.msbuild      text
+*.md           text
+
+*.doc                    diff=astextplain
+*.DOC                    diff=astextplain
+*.docx                   diff=astextplain
+*.DOCX                   diff=astextplain
+*.dot                    diff=astextplain
+*.DOT                    diff=astextplain
+*.pdf                    diff=astextplain
+*.PDF                    diff=astextplain
+
+
+*.app          binary
+*.bmp          binary
+*.png          binary
+*.jpg          binary
+*.jpeg         binary
+*.gif          binary
+*.ico          binary
+*.gz           binary
+*.gzip         binary
+*.tar          binary
+*.zip          binary
+*.bin          binary
+*.pptx         binary
+*.sdf          binary
