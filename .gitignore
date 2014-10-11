@@ -1,0 +1,15 @@
+.DS_Store
+
+*.log
+*.out
+*.pid
+*.sublime-*
+
+node_modules
+lib-cov
+tmp
+temp
+log
+logs
+_note*
+_idea*
