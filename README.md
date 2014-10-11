@@ -1,3 +1,4 @@
+[![npm](http://img.shields.io/npm/v/forecast.svg?style=flat-square)](http://npmjs.org/package/forecast) [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://jameswyse.mit-license.org) [![npm](http://img.shields.io/david/jameswyse/forecast.svg?style=flat-square)](http://npmjs.org/package/forecast) [![npm](http://img.shields.io/david/dev/jameswyse/forecast.svg?style=flat-square)](http://npmjs.org/package/forecast)
 Forecast - Weather information for Node.js
 =================================================
 
@@ -5,12 +6,15 @@ The aim of this module is to provide a common API for multiple weather providers
 
 Currently the only provider available is [Forecast.io](http://forecast.io)
 
-##Install
+## Install
+
+[![NPM](https://nodei.co/npm/forecast.png)](https://nodei.co/npm/forecast/)
+
 ```bash
-$ npm install forecast
+$ npm install --save forecast
 ```
 
-##Usage
+## Usage
 To use the forecast.io API you will need an API key which is available from https://developer.forecast.io/
 
 
@@ -44,7 +48,7 @@ forecast.get([-33.8683, 151.2086], true, function(err, weather) {
 ```
 
 
-##Example Output
+## Example Output
 ```javascript
 {
   latitude: -33.8683,
@@ -138,14 +142,15 @@ forecast.get([-33.8683, 151.2086], true, function(err, weather) {
 }
 ```
 
-##CONTRIBUTORS
+## Contributors
 
 * [James Wyse](https://github.com/jameswyse)
 * [Balázs Suhajda](https://github.com/suhajdab)
 * [hueneburg](https://github.com/hueneburg)
-* [ofbriggs](https://github.com/ofbriggs)
+* [Olivia Briggs](https://github.com/ofbriggs)
 
-##LICENCE (MIT)
+## License
+The MIT License (MIT)
 
 *Copyright (c) 2014 James Wyse <james@jameswyse.net>*
 
