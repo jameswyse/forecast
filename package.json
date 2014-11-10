@@ -1,7 +1,7 @@
 {
   "name": "forecast",
   "description": "Weather information for node.js",
-  "version": "0.2.1",
+  "version": "0.2.2-pre",
   "author": {
     "name": "James Wyse",
     "email": "james@jameswyse.net",
