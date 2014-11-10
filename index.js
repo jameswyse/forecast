@@ -81,7 +81,7 @@ Forecast.prototype.get = function(apiParams, ignoreCache, callback) {
   service.get(apiParams, function(err, result) {
     if(err) return callback(err);
 
-    if(self.options.cache) {
+    if(result !== undefined && self.options.cache) {
       self.cache[key] = result;
       self.cache[key].expires = new Date().getTime() + self.options.ttl.asMilliseconds();
     }
