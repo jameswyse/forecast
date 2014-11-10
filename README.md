@@ -148,6 +148,7 @@ forecast.get([-33.8683, 151.2086], true, function(err, weather) {
 * [Balázs Suhajda](https://github.com/suhajdab)
 * [hueneburg](https://github.com/hueneburg)
 * [Olivia Briggs](https://github.com/ofbriggs)
+* [Joshua Frattarola](https://github.com/jfrattarola)
 
 ## License
 The MIT License (MIT)
