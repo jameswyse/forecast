@@ -9,6 +9,12 @@ ForecastIO.prototype.query = function(apiParams, callback) {
   if(!this.options.key) return callback('No API key specified - Get one from https://developer.forecast.io');
 
   var units = this.options.units.charAt(0).toLowerCase() === 'c' ? '?units=si' : '';
+  // add language parameter
+  if (this.options.lang) {
+    if (units) units += '&';
+    units += 'lang=' + this.options.lang;
+  }
+  
   this.client.get(apiParams.join(',') + units, callback);
 };
 
