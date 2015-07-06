@@ -71,7 +71,6 @@ Forecast.prototype.get = function(apiParams, ignoreCache, callback) {
   if(typeof ignoreCache !== 'boolean') ignoreCache = false;
 
   if(!ignoreCache && this.options.cache && this.cache[key] && !this.expired(key)) {
-    console.log('cached!');
     return callback(null, this.cache[key]);
   }
 
