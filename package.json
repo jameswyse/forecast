@@ -1,26 +1,28 @@
 {
   "name": "forecast",
-  "description": "Weather information for node.js",
-  "version": "0.2.2-pre",
+  "description": "Weather information for node",
+  "version": "0.3.0",
+  "scripts": {
+    "lint": "eslint ."
+  },
   "author": {
     "name": "James Wyse",
-    "email": "james@jameswyse.net",
-    "url": "http://lemoncreative.net/"
+    "email": "james@jameswyse.net"
   },
-  "homepage": "https://github.com/jameswyse/forecast",
+  "homepage": "https://ghub.io/forecast",
   "repository": {
     "type": "git",
     "url": "git://github.com/jameswyse/forecast.git"
   },
   "bugs": {
-    "url": "https://github.com/jameswyse/forecast/issues",
-    "email": "james@jameswyse.net"
+    "url": "https://github.com/jameswyse/forecast/issues"
   },
   "keywords": [
     "weather",
     "forecast",
-    "forecast.io",
-    "api"
+    "api",
+    "darksky",
+    "forecast.io"
   ],
   "main": "index.js",
   "dependencies": {
@@ -30,6 +32,9 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.6.1"
   }
 }
