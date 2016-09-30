@@ -5,7 +5,6 @@
  * https://github.com/jameswyse/forecast/
  */
 
-var defaults  = require('lodash-node/modern/objects/defaults');
 var crypto    = require('crypto');
 var moment    = require('moment');
 var providers = require('./providers');
@@ -18,13 +17,15 @@ var providers = require('./providers');
 var Forecast = module.exports = function(options) {
   this.options   = options || {};
   this.providers = providers;
-  this.cache     = {};
+  this.cache = {};
 
-  defaults(this.options, {
-    service: 'forecast.io',
-    units:   'celcius',
-    cache:   true,
-    ttl:     { minutes: 30 }
+  this.options = Object.assign({}, options || {}, {
+    service: 'darksky',
+    units: 'celcius',
+    cache: true,
+    ttl: {
+      minutes: 30
+    }
   });
 
   if(this.options.key === 'your-api-key') {

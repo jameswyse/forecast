@@ -1,5 +1,5 @@
 //
-// Forecast example
+// Darksky / Forecast.io example
 //
 
 // Require the forecast module
@@ -7,7 +7,7 @@ var Forecast = require('../');
 
 // Initialize with custom settings
 var forecast = new Forecast({
-  service: 'forecast.io',
+  service: 'darksky.net',
   key: 'your-api-key',
   units: 'celcius',
   cache: true,
@@ -17,8 +17,10 @@ var forecast = new Forecast({
 });
 
 // Retrieve weather information using coordinates (Sydney, Australia)
-forecast.get([-33.8683, 151.2086], function(err, result) {
-  if(err) return console.dir(err);
+forecast.get([-33.8683, 151.2086], function (err, result) {
+  if (err) {
+    return console.dir(err);
+  }
 
   console.log('Latitude: %s', result.latitude);
   console.log('Longitude: %s', result.longitude);
@@ -32,5 +34,4 @@ forecast.get([-33.8683, 151.2086], function(err, result) {
     Math.round(parseFloat(result.currently.temperature, 10)),
     result.currently.humidity * 100
   );
-
 });
