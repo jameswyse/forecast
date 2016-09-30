@@ -76,6 +76,9 @@ Forecast.prototype.get = function(apiParams, ignoreCache, callback) {
   }
 
   var Service = this.providers[this.options.service.toLowerCase()];
+  if (Service instanceof Object) {
+    Service = Service[this.options.service.toLowerCase()];
+  }
   var service = new Service(this.options);
 
   service.get(apiParams, function(err, result) {
