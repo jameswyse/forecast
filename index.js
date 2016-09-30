@@ -14,8 +14,7 @@ var providers = require('./providers');
  * Forecast Constructor
  * @param {Object} options Options
  */
-var Forecast = module.exports = function(options) {
-  this.options   = options || {};
+var Forecast = module.exports = function (options) {
   this.providers = providers;
   this.cache = {};
 
@@ -28,7 +27,7 @@ var Forecast = module.exports = function(options) {
     }
   });
 
-  if(this.options.key === 'your-api-key') {
+  if (this.options.key === 'your-api-key') {
     this.options.key = null;
   }
 
@@ -41,14 +40,18 @@ var Forecast = module.exports = function(options) {
  * @param  {String} key Cache key
  * @return {Boolean}    `true` if expired, `false` otherwise.
  */
-Forecast.prototype.expired = function(key) {
+Forecast.prototype.expired = function (key) {
 
-  if(this.cache[key] === undefined) return true;
+  if (this.cache[key] === undefined) {
+    return true;
+  }
 
-  var isOld = this.cache[key].expires < (new Date().getTime());
-  if(isOld) delete this.cache[key];
+  if (this.cache[key].expires < (new Date().getTime())) {
+    delete this.cache[key];
+    return true;
+  }
 
-  return isOld;
+  return false;
 };
 
 
@@ -58,33 +61,34 @@ Forecast.prototype.expired = function(key) {
  * @param  {Boolean}  ignoreCache  If true then the cache will be ignored
  * @param  {Function} callback     Callback, signature: callback(err, result)
  */
-Forecast.prototype.get = function(apiParams, ignoreCache, callback) {
+Forecast.prototype.get = function (apiParams, ignoreCache, callback) {
   var self = this;
   var key  = crypto.createHash('md5')
     .update(this.options + apiParams)
     .digest('hex');
 
-  if(typeof ignoreCache === 'function') {
+  if (typeof ignoreCache === 'function') {
     callback = ignoreCache;
     ignoreCache = false;
   }
 
-  if(typeof ignoreCache !== 'boolean') ignoreCache = false;
+  if (typeof ignoreCache !== 'boolean') {
+    ignoreCache = false;
+  }
 
-  if(!ignoreCache && this.options.cache && this.cache[key] && !this.expired(key)) {
+  if (!ignoreCache && this.options.cache && this.cache[key] && !this.expired(key)) {
     return callback(null, this.cache[key]);
   }
 
-  var Service = this.providers[this.options.service.toLowerCase()];
-  if (Service instanceof Object) {
-    Service = Service[this.options.service.toLowerCase()];
-  }
+  var Service = this.providers(this.options.service.toLowerCase());
   var service = new Service(this.options);
 
-  service.get(apiParams, function(err, result) {
-    if(err) return callback(err);
+  return service.get(apiParams, function (err, result) {
+    if (err) {
+      return callback(err);
+    }
 
-    if(result !== undefined && self.options.cache) {
+    if (result !== undefined && self.options.cache) {
       self.cache[key] = result;
       self.cache[key].expires = new Date().getTime() + self.options.ttl.asMilliseconds();
     }
