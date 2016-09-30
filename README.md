@@ -2,9 +2,9 @@
 Forecast - Weather information for Node.js
 =================================================
 
-The aim of this module is to provide a common API for multiple weather providers and to return the results as a normalized Object.
+The aim of this module is to provide a common API for multiple weather providers and to return the results as a normalised Object.
 
-Currently the only provider available is [Forecast.io](http://forecast.io)
+Currently the only provider available is [darksky.net (forecast.io)](http://darksky.net)
 
 ## Install
 
@@ -15,7 +15,7 @@ $ npm install --save forecast
 ```
 
 ## Usage
-To use the forecast.io API you will need an API key which is available from https://developer.forecast.io/
+To use the darksky.net API you will need an API key which is available from https://darksky.net/dev/
 
 
 ```javascript
@@ -24,14 +24,14 @@ var Forecast = require('forecast');
 
 // Initialize
 var forecast = new Forecast({
-  service: 'forecast.io',
+  service: 'darksky',
   key: 'your-api-key',
-  units: 'celcius', // Only the first letter is parsed
-  cache: true,      // Cache API requests?
+  units: 'celcius',
+  cache: true,      // Cache API requests
   ttl: {            // How long to cache requests. Uses syntax from moment.js: http://momentjs.com/docs/#/durations/creating/
     minutes: 27,
     seconds: 45
-    }
+  }
 });
 
 // Retrieve weather information from coordinates (Sydney, Australia)
@@ -142,18 +142,12 @@ forecast.get([-33.8683, 151.2086], true, function(err, weather) {
 }
 ```
 
-## Contributors
-
-* [James Wyse](https://github.com/jameswyse)
-* [Balázs Suhajda](https://github.com/suhajdab)
-* [hueneburg](https://github.com/hueneburg)
-* [Olivia Briggs](https://github.com/ofbriggs)
-* [Joshua Frattarola](https://github.com/jfrattarola)
+## [Contributors](https://github.com/jameswyse/forecast/graphs/contributors)
 
 ## License
 The MIT License (MIT)
 
-*Copyright (c) 2014 James Wyse <james@jameswyse.net>*
+*Copyright (c) 2016 James Wyse <james@jameswyse.net>*
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
