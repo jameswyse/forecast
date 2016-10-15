@@ -1,7 +1,7 @@
 {
   "name": "forecast",
   "description": "Weather information for node",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "scripts": {
     "lint": "eslint ."
   },
