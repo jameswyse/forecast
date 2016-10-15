@@ -18,14 +18,14 @@ var Forecast = module.exports = function (options) {
   this.providers = providers;
   this.cache = {};
 
-  this.options = Object.assign({}, options || {}, {
+  this.options = Object.assign({}, {
     service: 'darksky',
     units: 'celcius',
     cache: true,
     ttl: {
       minutes: 30
     }
-  });
+  }, options || {});
 
   if (this.options.key === 'your-api-key') {
     this.options.key = null;
