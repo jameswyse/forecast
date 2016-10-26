@@ -1,7 +1,7 @@
 {
   "name": "forecast",
   "description": "Weather information for node",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "scripts": {
     "lint": "eslint ."
   },
@@ -27,11 +27,12 @@
   "main": "index.js",
   "dependencies": {
     "moment": "^2.15.1",
+    "object-assign": "^4.1.0",
     "request-json": "^0.6.1"
   },
   "license": "MIT",
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 0.10.0"
   },
   "devDependencies": {
     "eslint": "^3.6.1"

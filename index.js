@@ -5,8 +5,9 @@
  * https://github.com/jameswyse/forecast/
  */
 
-var crypto    = require('crypto');
-var moment    = require('moment');
+var crypto = require('crypto');
+var moment = require('moment');
+var assign = require('object-assign');
 var providers = require('./providers');
 
 
@@ -18,7 +19,7 @@ var Forecast = module.exports = function (options) {
   this.providers = providers;
   this.cache = {};
 
-  this.options = Object.assign({}, {
+  this.options = assign({}, {
     service: 'darksky',
     units: 'celcius',
     cache: true,
