@@ -18,14 +18,25 @@ var Forecast = module.exports = function (options) {
   this.providers = providers;
   this.cache = {};
 
-  this.options = Object.assign({}, {
-    service: 'darksky',
-    units: 'celcius',
-    cache: true,
-    ttl: {
+  this.options = options || {};
+
+  if (!this.options.service) {
+    this.options.service = 'darksky';
+  }
+
+  if (!this.options.units) {
+    this.options.units = 'celcius';
+  }
+
+  if (!this.options.cache) {
+    this.options.cache = true;
+  }
+
+  if (!this.options.ttl) {
+    this.options.ttl = {
       minutes: 30
     }
-  }, options || {});
+  }
 
   if (this.options.key === 'your-api-key') {
     this.options.key = null;
