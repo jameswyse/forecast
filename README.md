@@ -2,6 +2,8 @@
 Forecast - Weather information for Node.js
 =================================================
 
+# NOTE: This package is deprecated and no longer works.
+
 The aim of this module is to provide a common API for multiple weather providers and to return the results as a normalised Object.
 
 Currently the only provider available is [darksky.net (forecast.io)](http://darksky.net)
